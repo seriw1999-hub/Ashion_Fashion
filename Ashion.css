@@ -1,0 +1,406 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* istədiyiniz ümumi fon rəngi */
+  overflow-x: hidden;     /* horizontal scroll olmasın */
+}
+
+.container {
+  max-width: 100%;   /* containeri tam genişlikdə saxla */
+  padding: 0 20px;   /* istəsəniz yan boşluq verin */
+  box-sizing: border-box;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+.menu-item.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #f08c00;
+  margin-top: 5px;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 50px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 640;
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+  color: #f08c00;
+  transform: translateY(-4px);
+  border-bottom: 1px solid #f08c00;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-icons a img {
+  transition: transform 0.3s ease;
+}
+
+.header-icons a:hover img {
+  transform: scale(1.1);
+}
+
+/* BANNER (CATEGORY GRID) */
+.banner {
+  width: 100vw;
+  height: 665px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "women women men kids"
+    "women women cosmetics accessories";
+  gap: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  /* yazılar üst-üstə */
+  justify-content: center;
+  /* dikeydə ortala */
+  align-items: flex-start;
+  /* solda saxla */
+  padding-left: 40px;
+  /* soldan boşluq */
+  color: #000;
+}
+
+.section h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section p {
+  max-width: 300px;
+  /* çox uzanmasın */
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.section button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #000;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.women {
+  grid-area: women;
+  background: url(category-1.jpg.webp) center/cover no-repeat;
+}
+
+.men {
+  grid-area: men;
+  background: url(category-2.jpg.webp) center/cover no-repeat;
+}
+
+.kids {
+  grid-area: kids;
+  background: url(category-3.jpg.webp) center/cover no-repeat;
+}
+
+.cosmetics {
+  grid-area: cosmetics;
+  background: url(category-4.jpg.webp) center/cover no-repeat;
+}
+
+.accessories {
+  grid-area: accessories;
+  background: url(category-5.jpg.webp) center/cover no-repeat;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 40px 80px;
+}
+
+.products h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter button {
+  background: none;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.filter button.active,
+.filter button:hover {
+  border-bottom: 2px solid #f08c00;
+  color: #f08c00;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: green;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.label.out-of-stock {
+  background-color: black;
+}
+
+.label.sale {
+  background-color: red;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chloe-banner {
+  width: 100%;
+  height: 500px;
+  background-image: url(banner-1.jpg.webp);
+  /* Buraya şəkilin yolunu yaz */
+  background-size: cover;
+  /* Şəkil tam konteyneri doldurur */
+  background-position: center;
+  /* Mərkəzə yerləşir */
+  background-repeat: no-repeat;
+  /* Təkrarlanmır */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center-text {
+  background: none;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.center-text h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.center-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.center-text button {
+  padding: 10px 20px;
+  background: none;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  text-decoration: underline red;
+}
+
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 60px 0 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.payment-icons img {
+  width: 50px;
+  /* ikon ölçüsü */
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.payment-icons img:hover {
+  transform: scale(1.1);
+}
+
+
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  margin: 20px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  width: 40px;
+  background: #e91e63;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 10px 0;
+}
+
+.footer-col ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background: #333;
+  margin: 0 5px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: #e91e63;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
